@@ -1,0 +1,19 @@
+<div class = "container">
+ <div class = "row">
+   <%= form_for(@appointment) do |f| %>
+     <br>
+      <%= f.label :date, "Schedule an appointment" %><br>
+      <br>
+      <hr>
+      <%= f.label :doctor, "Please select the name of the doctor" %><br>
+      <%= f.collection_select(:doctor_id, Doctor.all, :id, :name, prompt: true) %><br>
+      <br>
+      <%= f.label :Patient, "Please select your username" %><br>
+      <%= f.collection_select(:patient_id, Patient.all, :id, :name, prompt: true) %><br>
+      <br>
+      <br>
+      <hr>
+      <strong><%= f.submit %></strong>
+   <% end %>
+ </div> 
+</div>

@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<div class = "container">
+ <div class = "row"></div>  
+  <%= form_tag(patients_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "please enter your name" %>
+      <%= submit_tag "Search", :name => nil %>
+      <br>
+      <br>
+      <div>
+       <% if @list_doctors.present? %>
+          <br>
+          <h5>To schedule a new appointment click <strong><%= link_to "Here", new_appointment_path %></strong>.</h5>
+          <hr>
+          <%= @list_doctors.each do |patient| %>
+          <p>Appointment for patient <strong><%= patient.name %></strong></p>
+          <hr>
+          <br>
+          <% end %>
+       <% else %>
+           <h5>your name is not on our database, please <strong><%= link_to "registry", new_patient_path %></strong>.</h5>
+       <% end %>
+  <% end %>         
+     </div>
+ </div>  
+</div>
+
+
+
+<!-- <h1>Listing Patients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <#% #@patients.each do |patient| %>
+      <tr>
+        <td><#%= #link_to 'Show', patient %></td>
+        <td><#%= #link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><#%= #link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <#% end %>
+  </tbody>
+</table>
+
+<br>
+
+<#%= link_to 'New Patient', new_patient_path %> -->

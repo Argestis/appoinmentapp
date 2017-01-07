@@ -1,0 +1,39 @@
+<div class = "container">
+ <div class = "row"></div>  
+  <%= form_tag(doctors_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "please enter your name" %>
+      <%= submit_tag "Search", :name => nil %>
+      <br>
+      <br>
+      <div>
+       <% if @list_patients.present? %>
+          <%= @list_patients.each do |patient| %>
+          <p>Appointment for patient <strong><%= patient.name %></strong></p>
+          <hr>
+          <br>
+          <% end %>
+       <% else %>
+           <h5>your name is not on our database, please <strong><%= link_to "registry", new_doctor_path %></strong>.</h5>
+       <% end %>
+  <% end %>         
+     </div>
+ </div>  
+</div>  
+
+
+
+
+
+
+<!-- <p id="notice"><= notice %></p>
+
+<h1></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>lete, data: { confirm: 'Are you sure?' } %> -->
