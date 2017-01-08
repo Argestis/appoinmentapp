@@ -12,7 +12,7 @@
           <h5>To schedule a new appointment click <strong><%= link_to "Here", new_appointment_path %></strong>.</h5>
           <hr>
           <%= @list_doctors.each do |patient| %>
-          <p>Appointment for patient <strong><%= patient.name %></strong></p>
+          <p>Appointment with Doctor <strong><%= patient.name %></strong></p>
           <hr>
           <br>
           <% end %>
